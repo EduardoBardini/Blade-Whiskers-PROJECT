@@ -6,9 +6,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from "@react-navigation/native";
 
 export default function Menu(){
-    const navigation = useNavigation();
-
-const [telaMenu,setTelaMenu] = useState(true);
+ const navigation = useNavigation();
+ 
+ const [telaMenu,setTelaMenu] = useState(true);
 
     return(
         <View style={styles.container}>
