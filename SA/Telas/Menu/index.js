@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, ImageBackground,Image } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+
+
 
 
 import { useNavigation } from "@react-navigation/native";
@@ -29,20 +32,26 @@ const styles = StyleSheet.create({
 
 function HeaderMenu(){
     return(
-     <View style={{width: '100%',height: '20%',backgroundColor: 'black',
-      alignItems: 'center',justifyContent: 'center',flex: 1}}>
+     <View style={{width: '100%',height: '15%',backgroundColor: 'black',
+      alignItems: 'center',justifyContent: 'flex-end',paddingBottom: 20,flex: 1}}>
           
-        <Text style={{color: 'gold',fontSize: 35}}>BLADE & WHISKERS</Text>
+        <Text style={{color: 'gold',fontSize: 40}}>BLADE & WHISKERS</Text>
      </View>
     )
 }
 
 function BodyMenu(){
  return(
-  <View style={{width: '100%',height: '70%',backgroundColor: 'gray',justifyContent: 'center',
+  <View style={{width: '100%',height: '75%',backgroundColor: 'gray',justifyContent: 'center',
   alignItems: 'center'}}>
-
-    <Text style={{fontSize: 55}}>IMAGEM EM BREVE....</Text>
+       
+       
+    <ImageBackground  
+    source={require('../../imagens/imagemOne-menu.jpg')} 
+    style={{width: '100%', height: '100%'}}  
+    />
+    
+    
 
   </View>
  )
@@ -52,9 +61,12 @@ function TabMenu(){
    return(
      <View style={{height: '10%',width: '100%',backgroundColor: 'black'
      ,flexDirection: 'row',justifyContent: 'space-around'}}>
-        <View><Text style={{color: 'gold',fontSize: 55}}></Text></View>
-        <View><Text style={{color: 'gold',fontSize: 55}}></Text></View>
-        <View> <Icon name="user" size={50} color="gold"  type="FontAwesome"/></View>
+        {/* <View><Image source={require('../../imagens/')} /></View> */}
+        <View><Icon name="user" color="#daa520" style={{fontSize: 65}}/></View>
+        <View><Icon name="calendar" color="#daa520" style={{fontSize: 65}}/></View>
+        <View><Image style={{height: 65,width: 65}} source={require('../../imagens/arrow-right-from-bracket-solid.svg')}/></View>
      </View>
     )
 }
+
+
