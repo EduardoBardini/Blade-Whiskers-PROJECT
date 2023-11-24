@@ -11,8 +11,14 @@ import { useNavigation } from "@react-navigation/native";
 
 
 export default function Menu(){
+<<<<<<< HEAD
   const navigation = useNavigation();
   const[verificacaoUser,setVerificacaoUser] = useState(false);
+=======
+ const navigation = useNavigation();
+ 
+ const [telaMenu,setTelaMenu] = useState(true);
+>>>>>>> a0b38f950c1a0df754f8331a860fabad799e9072
 
     return(
         <View style={styles.container}>
