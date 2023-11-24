@@ -4,8 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Menu from './Telas/Menu';
-import Cadastro from './Telas/Cadastro';
-import Login from './Telas/Login';
+import TelaCadastro from './Telas/TelaCadastro';
+import TelaLogin from './Telas/TelaLogin';
+import Agendamento from './Telas/Agendamento';
+import TelaPrincipal from './Telas/TelaPrincipal';
+
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
@@ -15,20 +18,29 @@ export default function App(){
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="BLADE & WHISKERS" component={Cadastro} options={{
-          headerShown: true,
         
-        }} /> 
         <Stack.Screen name="Menu" component={Menu} options={{
           headerShown: false
         }}/> 
-        
-        <Stack.Screen name="Login" component={Login} options={{
+
+        <Stack.Screen name='TelaCadastro' component={TelaCadastro} options={{
           headerShown: false
+        }}/>
+        
+        <Stack.Screen name='TelaLogin' component={TelaLogin} options={{
+          headerShown: false
+        }}/>
+        
+        <Stack.Screen name="TelaPrincipal" component={TelaPrincipal} options={{
+          headerShown: false
+        }}/>
+        
+        <Stack.Screen name="Agendamento" component={Agendamento} options={{
+          headerShown: false,
+        
+        }} />  
 
 
-
-        }}/> 
       </Stack.Navigator>
     </NavigationContainer>
   )
