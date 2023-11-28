@@ -5,9 +5,17 @@ const app = express()
 
 app.use(express.json())
 
-app.post('/USUARIO', (res, req) => {
+app.get('/USUARIO', (res, req) => {
    
-    const sql = "INSERT INTO USUARIO "
+    const sql = "SELECT * FROM USUARIO"
 
-
+    conexao.query(sql,(erro, resultado) => {
+       if(erro){
+        console.log(erro)
+       } else {
+        res.json(resultado)
+       }
+    })
 })
+
+export default app
