@@ -8,6 +8,9 @@ import TelaCadastro from './Telas/TelaCadastro';
 import TelaLogin from './Telas/TelaLogin';
 import Agendamento from './Telas/Agendamento';
 import TelaPrincipal from './Telas/TelaPrincipal';
+import MostrarAgendamento from './Telas/MostrarAgendamentos'
+import TelaUser from './Telas/TelaUser';
+import TelaConfig from './Telas/TelaConfig';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
@@ -38,8 +41,19 @@ export default function App(){
         <Stack.Screen name="Agendamento" component={Agendamento} options={{
           headerShown: false,
         
-        }} />  
+        }}/>  
+        
+        <Stack.Screen name="MostrarAgendamento" component={MostrarAgendamento} options={{
+          headerShown: false,
+        }}/>
+        
+        <Stack.Screen name="TelaUser" component={TelaUser} options={{
+          headerShown: false,
+        }}/>
 
+        <Stack.Screen name="TelaConfig" component={TelaConfig} options={{
+          headerShown: false,
+        }}/>
 
       </Stack.Navigator>
     </NavigationContainer>
