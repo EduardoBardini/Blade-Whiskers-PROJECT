@@ -11,8 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Agendamento(){
     const navigation = useNavigation();
-  const[verificacaoUser,setVerificacaoUser] = useState(false);
-  const [telaMenu,setTelaMenu] = useState(true);
+ 
 
     return(
         <View style={styles.container}>

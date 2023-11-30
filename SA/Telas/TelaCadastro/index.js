@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Button, ImageBackground,Image,TouchableOpacity,TextInput } from "react-native";
+import api from '../../src/api';
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -27,6 +28,32 @@ function BodyCadastro(){
     const [emailUsuario,setEmailUsuario] = useState();
     const [nomeUsuario, setNomeUsuario] = useState();
     const [senhaUsuario,setSenhaUsuario] = useState();
+    
+    const cadastrar = async () => {
+      try {
+          const AuthenticarData = await api.post("/usuario/cadastro", {
+            nome: nomeUsuario,
+            email: emailUsuario,
+            senha: senhaUsuario
+          });
+          if (AuthenticarData.status === 200) {
+              alert(AuthenticarData.data.message)
+              setNomeUsuario("")
+              setEmailUsuario("")
+              setSenhaUsuario("")
+              
+              dispatch({type: "atualizar", payload: true})
+              navigation.navigate("TelaLogin")
+          }
+          else {
+              console.log(AuthenticarData.data.message)
+          }
+      }
+      catch (e) {
+          console.log(e)
+      }
+     }
+    
      
     return(
       <View style={{width: '100%',height: '100%',justifyContent: 'center',
@@ -57,7 +84,7 @@ function BodyCadastro(){
            borderRadius: 15,}}>
 
             <Text style={{color: 'white',fontSize: 23}} 
-            onPress={() => navigation.navigate("TelaLogin")}>Cadastrar-se</Text>
+            onPress={ cadastrar }>Cadastrar-se</Text>
 
           </TouchableOpacity>
 

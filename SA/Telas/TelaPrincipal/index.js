@@ -53,15 +53,17 @@ function BodyMenuUm(){
        <View style={{backgroundColor: 'black',width: 180,height: 180,borderWidth: 1,borderRadius: 15,
         alignItems: 'center',justifyContent: 'center'}}>
        
-        <TouchableOpacity style={{backgroundColor: '#white'}} onPress={() => navigation.navigate("TelaUser")}>
-          <Image style={{height: 150,width: 150,borderRadius: 15}} source={require('../../imagens/whiteUser.png')}/>
+        <TouchableOpacity style={{backgroundColor: '#white',alignItems: 'center',justifyContent: 'center'}} onPress={() => navigation.navigate("TelaUser")}>
+          <Image style={{height: 100,width: 100,borderRadius: 15}} source={require('../../imagens/whiteUser.png')}/>
+          <Text style={{fontSize: 25,color: 'red'}}>User</Text>
         </TouchableOpacity>
        </View>
 
        <View style={{backgroundColor: 'black',width: 180,height: 180,borderWidth: 1,borderRadius: 15,
         alignItems: 'center',justifyContent: 'center'}}>
         <TouchableOpacity style={{backgroundColor: '#white'}} onPress={() => navigation.navigate("MostrarAgendamento")}>
-          <Image style={{height: 150,width: 150,borderRadius: 15}} source={require('../../imagens/whiteCalendar.png')}/>
+          <Image style={{height: 100,width: 100,borderRadius: 15}} source={require('../../imagens/whiteCalendar.png')}/>
+          <Text style={{fontSize: 25,color: 'red'}}>Agendamentos Realizados</Text>        
         </TouchableOpacity>
        </View>
     </View>
@@ -91,18 +93,5 @@ const navigation = useNavigation();
     </View>
   )
 }
-
-//function TabMenu(){
-//   return(
-//    <View style={{height: '10%',width: '100%',backgroundColor: 'black'
-//     ,flexDirection: 'row',justifyContent: 'space-around'}}>
-//        
-//        
-//       
-//    
-//        
-//    </View>
-//    ) 
-//}
 
 
