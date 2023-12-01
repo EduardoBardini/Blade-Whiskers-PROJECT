@@ -42,7 +42,7 @@ function BodyCadastro(){
               setEmailUsuario("")
               setSenhaUsuario("")
               
-              dispatch({type: "atualizar", payload: true})
+              dispatch({type: "update", payload: true})
               navigation.navigate("TelaLogin")
           }
           else {

@@ -1,16 +1,30 @@
 import express from 'express'
 import conexao from '../infra/conexao.js'
+import cors from 'cors';
+import bodyParser from 'body-parser';
+
+
+
+
+
+
+
 
 const app = express()
 
 app.use(express.json())
 
-app.post('/usuario/cadastro', (res, req) => {
-    
-    const nome = req.body.nome;
-    const email = req.body.email;
-    const senha = req.body.senha;
+app.use(cors());
 
+app.listen(3000, '0.0.0.0',() => {
+    console.log('Servidor está ouvindo em http://0.0.0.0:3000');
+})
+
+app.post('/usuario/cadastro', (res, req) => {
+console.log(req.body);
+  
+ const {nome, email, senha} = req.body;
+  
     conexao.query("SELECT * FROM USUARIO WHERE email = ?", [email],
     (req, res) => {
         if (err) {
