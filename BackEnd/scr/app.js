@@ -1,12 +1,6 @@
 import express from 'express'
 import conexao from '../infra/conexao.js'
 import cors from 'cors';
-import bodyParser from 'body-parser';
-
-
-
-
-
 
 
 
@@ -23,32 +17,40 @@ app.listen(3000, '0.0.0.0',() => {
 app.post('/usuario/cadastro', (res, req) => {
 console.log(req.body);
   
- const {nome, email, senha} = req.body;
-  
-    conexao.query("SELECT * FROM USUARIO WHERE email = ?", [email],
-    (req, res) => {
-        if (err) {
-            res.send(err);
-          }
-          if (result.length == 0) {
-            
-              db.query(
-                "INSERT INTO usuarios (email, senha, nome) VALUE (?,?,?)",
-                [email, senha, nome],
-                (error, response) => {
-                  if (err) {
-                    res.send(err);
-                  }
-      
-                  res.send({ msg: "Usuário cadastrado com sucesso" });
-                }
-              );
-            
-          } else {
-            res.send({ msg: "Email já cadastrado" });
-          }
-        });
-      });
+ const nome = req.body;
+ const sql =  "INSERT INTO usuarios (nome) VALUE ?"
+  //const sql = "SELECT * FROM USUARIO WHERE email = ?"
+    conexao.query(sql, nome, (err, result) => {
+        if(err) {
+          console.log(err);
+        } else {
+          res.status(200).json(result);
+        }
+
+    
+    
+      // if (err) {
+      //  res.send(err);
+      //}
+      //if (result.length == 0) {
+      //  
+      //    conexao.query(
+      //      "INSERT INTO usuarios (email, senha, nome) VALUE (?,?,?)",
+      //      [email, senha, nome],
+      //      (error, response) => {
+      //        if (err) {
+      //          res.send(err);
+      //        }
+      //
+      //        res.send({ msg: "Usuário cadastrado com sucesso" });
+      //      }
+      //    );
+      //  
+      //} else {
+      //  res.send({ msg: "Email já cadastrado" });
+      //}
+    });
+  });
 
 
 

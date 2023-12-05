@@ -39,6 +39,7 @@ function HeaderMenu(){
         <View><Text style={{color: 'white'}}>Ano: </Text><TextInput keyboardType="numeric" style={{fontSize: 23,borderColor: '#C1272C',width: 300,height: 50,borderBottomWidth: 3,color: 'white'}} /></View>
         <View><Text style={{color: 'white'}}>Mês: </Text><TextInput keyboardType="numeric" style={{fontSize: 23,borderColor: '#C1272C',width: 300,height: 50,borderBottomWidth: 3,color: 'white'}} /></View>
         <View><Text style={{color: 'white'}}>Dia: </Text><TextInput keyboardType="numeric" style={{fontSize: 23,borderColor: '#C1272C',width: 300,height: 50,borderBottomWidth: 3,color: 'white'}} /></View>
+        <View><Text style={{color: 'white'}}>Horario: </Text><TextInput keyboardType="numeric" style={{fontSize: 23,borderColor: '#C1272C',width: 300,height: 50,borderBottomWidth: 3,color: 'white'}} /></View>
      </View>
     )
 }

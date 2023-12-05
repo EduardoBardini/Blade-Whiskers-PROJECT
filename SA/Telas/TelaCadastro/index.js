@@ -41,9 +41,9 @@ function BodyCadastro(){
               setNomeUsuario("")
               setEmailUsuario("")
               setSenhaUsuario("")
-              
+              navigation.navigate("TelaLogin");
               dispatch({type: "update", payload: true})
-              navigation.navigate("TelaLogin")
+              
           }
           else {
               console.log(AuthenticarData.data.message)
