@@ -4,6 +4,6 @@ const port = 3000
 
 app.listen(port, () => {
 
-   console.log('Servidor funcionando corretamente')
+   console.log('---------- AVISO: Servidor funcionando corretamente ----------------------')
 
 })

@@ -5,12 +5,14 @@ CREATE TABLE USUARIO(
  id_usuario INT AUTO_INCREMENT NOT NULL,
  nome VARCHAR(45),
  email VARCHAR(45),
- senha BIGINT,
+ senha VARCHAR(45),
  PRIMARY KEY(id_usuario)
 );
 
 CREATE TABLE AGENDAMENTO(
  id_agendamento INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+ anoAg INT, 
+ mesAg INT,
  dataAg INT,
  horarioAg INT
 );
