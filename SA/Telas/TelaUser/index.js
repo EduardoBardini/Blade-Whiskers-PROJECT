@@ -49,12 +49,6 @@ function HeaderMenu(){
         <TextInput style={{fontSize: 23,borderColor: '#C1272C',width: 300,height: 50,borderBottomWidth: 3,color: 'white'}}
         placeholderTextColor="white"  />
         </View>
-        <TouchableOpacity style={{justifyContent: 'center',alignItems: 'center',width: 300,height: 50,backgroundColor: '#C1272C',
-           borderRadius: 15,}}>
-
-            <Text style={{color: 'white'}}>Alterar Dados</Text>
-
-        </TouchableOpacity>
      </View>
     )
 }

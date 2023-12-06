@@ -10,47 +10,67 @@ app.use(express.json())
 
 app.use(cors());
 
-app.listen(3000, '0.0.0.0',() => {
-    console.log('Servidor está ouvindo em http://0.0.0.0:3000');
+// ROTA CADASTRO
+
+app.get('/users', (req, res) => {
+ 
+  const usersInfo = req.body
+  const sql2 = 'SELECT * FROM USUARIO'
+
+  conexao.query(sql2, usersInfo, (err, result) => {
+    if(err) {
+      console.log(err);
+    } else {
+      res.status(200).json(result);
+    }
+  })
 })
 
-app.post('/usuario/cadastro', (res, req) => {
-console.log(req.body);
-  
- const nome = req.body;
- const sql =  "INSERT INTO usuarios (nome) VALUE ?"
-  //const sql = "SELECT * FROM USUARIO WHERE email = ?"
-    conexao.query(sql, nome, (err, result) => {
-        if(err) {
-          console.log(err);
-        } else {
-          res.status(200).json(result);
-        }
 
-    
-    
-      // if (err) {
-      //  res.send(err);
-      //}
-      //if (result.length == 0) {
-      //  
-      //    conexao.query(
-      //      "INSERT INTO usuarios (email, senha, nome) VALUE (?,?,?)",
-      //      [email, senha, nome],
-      //      (error, response) => {
-      //        if (err) {
-      //          res.send(err);
-      //        }
-      //
-      //        res.send({ msg: "Usuário cadastrado com sucesso" });
-      //      }
-      //    );
-      //  
-      //} else {
-      //  res.send({ msg: "Email já cadastrado" });
-      //}
-    });
+app.post('/usuario/cadastro', (req, res) => {
+  
+  const regisUserInfo = req.body
+  const sql2 =  'INSERT INTO usuario SET ?'
+  conexao.query(sql2, regisUserInfo, (err, result) => {
+      if(err) {
+        console.log(err);
+      } else {
+        res.status(200).json(result);
+      }
   });
+});
+
+
+
+
+
+// ROTA LOGIN
+
+app.get('/usuario/login/:email', (req, res) => {
+  
+  const senha = req.body
+  const email = req.params.email
+  const sql2 = 'SELECT * FROM USUARIO WHERE email = ? AND ?'
+  
+  
+  conexao.query(sql2, [email,senha], (err, result) => {
+    if(err) {
+      console.log(err)
+      console.log('Login negado!')
+
+    } else {
+      if(result = null){
+
+        
+      }
+      res.status(200).json(result);
+      console.log('Login realizado!')
+    }
+  }) 
+})
+
+
+
 
 
 

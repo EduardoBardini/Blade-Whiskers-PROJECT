@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Button, ImageBackground,Image,TouchableOpacity,TextInput } from "react-native";
 import api from '../../src/api';
-
 import { useNavigation } from "@react-navigation/native";
+
 
 
 export default function TelaCadastro(){
@@ -23,37 +23,44 @@ const styles = StyleSheet.create({
 })
   
 
+
 function BodyCadastro(){
-    const navigation = useNavigation();
-    const [emailUsuario,setEmailUsuario] = useState();
-    const [nomeUsuario, setNomeUsuario] = useState();
-    const [senhaUsuario,setSenhaUsuario] = useState();
-    
-    const cadastrar = async () => {
-      try {
-          const AuthenticarData = await api.post("/usuario/cadastro", {
+  const navigation = useNavigation();
+  const [emailUsuario,setEmailUsuario] = useState();
+  const [nomeUsuario, setNomeUsuario] = useState();
+  const [senhaUsuario,setSenhaUsuario] = useState();
+  
+  const cadastrar  = async () => {
+    try {
+      const regisUserInfo = await api.post('/usuario/cadastro', {
             nome: nomeUsuario,
             email: emailUsuario,
-            senha: senhaUsuario
-          });
-          if (AuthenticarData.status === 200) {
-              alert(AuthenticarData.data.message)
-              setNomeUsuario("")
-              setEmailUsuario("")
-              setSenhaUsuario("")
-              navigation.navigate("TelaLogin");
-              dispatch({type: "update", payload: true})
-              
-          }
-          else {
-              console.log(AuthenticarData.data.message)
-          }
+            senha: senhaUsuario,
+        });
+        if (data.status === 200) {
+            console.log(regisUserInfo)
+            alert('Cadastro Realizado!');
+            alert(regisUserInfo.regisUserInfo.message)
+            navigation.navigate('TelaLogin');
+        } else {
+            console.log(regisUserInfo)
+        }
+    } catch (err) {
+      if (err.response) {
+        // A requisição foi feita e o servidor respondeu com um código de status diferente de 2xx
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      } else if (err.request) {
+        // A requisição foi feita, mas não recebeu resposta
+        console.log(err.request);
+      } else {
+        // Algo aconteceu ao configurar a requisição que acionou um erro
+        console.log('Error', err.message);
       }
-      catch (e) {
-          console.log(e)
-      }
-     }
-    
+    }
+  }
+   
      
     return(
       <View style={{width: '100%',height: '100%',justifyContent: 'center',
