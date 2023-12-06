@@ -4,17 +4,17 @@ USE `BLADEWHISKERS`;
 CREATE TABLE USUARIO(
  id_usuario INT AUTO_INCREMENT NOT NULL,
  nome VARCHAR(45),
- email VARCHAR(45),
+ email VARCHAR(45) UNIQUE,
  senha VARCHAR(45),
  PRIMARY KEY(id_usuario)
 );
 
 CREATE TABLE AGENDAMENTO(
  id_agendamento INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
- anoAg INT, 
+ anoAg YEAR,
  mesAg INT,
- dataAg INT,
- horarioAg INT
+ diaAg INT,
+ horarioAg TIME
 );
 
 ALTER TABLE USUARIO
@@ -23,3 +23,9 @@ ADD FOREIGN KEY (agendamento_idForeignKey)
 REFERENCES agendamento (id_agendamento);
 
 SELECT * FROM USUARIO;
+
+SELECT * FROM AGENDAMENTO;
+
+UPDATE USUARIO SET agendamento_idForeignKey = 1 WHERE id_usuario = 1
+
+
